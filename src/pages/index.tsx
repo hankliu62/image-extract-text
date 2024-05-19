@@ -20,10 +20,10 @@ import {
   PictureOutlined,
 } from '@hankliu/icons';
 import dynamic from 'next/dynamic';
-import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { createWorker } from 'tesseract.js';
 import { LanguageNames, Languages, PageTitle } from '@/constants';
+import useBreadcrumb from '@/hooks/useBreadcrumb';
 
 const languageOptions = Object.keys(Languages).map((key) => ({
   label: LanguageNames[Languages[key]],
@@ -47,6 +47,9 @@ export default function Index() {
   );
   const [fetching, setFetching] = useState<boolean>(false);
   const router = useRouter();
+
+  // 点击面包屑
+  const onClickBreadcrumb = useBreadcrumb();
 
   useEffect(() => {
     AOS.init();
@@ -76,9 +79,9 @@ export default function Index() {
       {!!router.query?.['with-breadcrumb'] && (
         <Breadcrumb className="!m-6 !text-base" separator="/">
           <Breadcrumb.Item>
-            <Link href="https://hankliu62.github.io/toolkits/">小工具集合</Link>
+            <a onClick={onClickBreadcrumb}>小工具集合</a>
           </Breadcrumb.Item>
-          <Breadcrumb.Item>{PageTitle.split(' ').pop()}</Breadcrumb.Item>
+          <Breadcrumb.Item>{PageTitle.split('-').pop().trim()}</Breadcrumb.Item>
         </Breadcrumb>
       )}
 

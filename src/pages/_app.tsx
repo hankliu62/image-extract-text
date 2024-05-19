@@ -16,6 +16,7 @@ import type { ReactElement, ReactNode } from 'react';
 
 import DefaultLayout from '@/layouts/index';
 import { getRoutePrefix } from '@/utils/route';
+import { PageDescription, PageKeywords, PageTitle } from '@/constants';
 
 type NextPageWithLayout = NextPage & {
   getLayout?: (page: ReactElement) => ReactNode;
@@ -37,17 +38,14 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
   return (
     <>
       <Head>
-        <title>CSS 兼容性处理 - H.L Toolkits</title>
+        <title>{PageTitle.split(' - ').reverse().join(' - ')}</title>
         <link rel="icon" href={`${getRoutePrefix()}/favicon.ico`} />
-        <meta
-          name="description"
-          content="CSS 兼容性处理是确保网站在不同浏览器和设备上都能够良好显示和运行的关键步骤。通过在线 CSS 兼容性处理，可以让网站更具魅力和稳定性，使其在各种环境下都能够提供出色的用户体验。"
-        />
-        <meta
-          name="keywords"
-          content="autoprefixer,CSS 兼容性处理,兼容性处理,toolkit,toolkits,前端开发,前端开发工具,前端开发工具集合,在线工具,toolbox,frontend,卡鲁秋,Hank,HankLiu"
-        />
+        <meta name="description" content={PageDescription} />
+        <meta name="keywords" content={PageKeywords.join(',')} />
         <meta name="author" content="Hank.Liu" />
+        <meta name="copyright" content="卡鲁秋" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta httpEquiv="X-UA-Compatible" content="IE=edge,chrome=1" />
       </Head>
 
       {getLayout(
