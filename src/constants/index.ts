@@ -2,6 +2,24 @@ export const PageTitle = 'H.L Toolkits - 图片提取文字';
 
 export const PageSubTitle = `在这个富有文艺气息的网络平台上，释放您内心的创造力！我们是您探索艺术与文字交织之美的理想场所。让我们一同解读图像中隐藏的信息，感受文字的魔力，并探索创意的无限可能性！欢迎来到我们的平台，开启一场奇妙的视觉之旅！`;
 
+export const PageDescription = `在线图片提取文字网站，用于解析您的上传的图片，自动获取图片中的文字内容。`;
+
+export const PageKeywords = [
+  'extract image text',
+  '图片提取文字',
+  'toolkit',
+  'toolkits',
+  '前端开发',
+  '前端开发工具',
+  '前端开发工具集合',
+  '在线工具',
+  'toolbox',
+  'frontend',
+  '卡鲁秋',
+  'Hank',
+  'HankLiu',
+];
+
 export const Languages = {
   AFR: 'afr',
   AMH: 'amh',
